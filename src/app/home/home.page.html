@@ -1,20 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      オセロ
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button *ngIf="!state" (click)="setPlayer('black')">
+    黒で戦う
+  </ion-button>
+  <ion-button *ngIf="!state" (click)="setPlayer('white')">
+    白で戦う
+  </ion-button>
+  <ion-grid *ngIf="state">
+    <ion-row *ngFor="let rowCell of state.board let row = index">
+      <ion-row *ngFor="let colCell of rowCell let col = index">
+        <ion-button [color]="checkColor(colCell)"
+          [disabled]="!checkPlaceable(row,col, state.gameState) || this.userState !== this.state.gameState"
+          (click)="setStone(row,col,state.gameState)">
+        </ion-button>
+      </ion-row>
+    </ion-row>
+  </ion-grid>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
 </ion-content>

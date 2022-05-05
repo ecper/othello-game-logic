@@ -20,7 +20,9 @@
     "@angular/platform-browser-dynamic": "~13.2.2",
     "@angular/router": "~13.2.2",
     "@ionic/angular": "^6.0.0",
+    "othello-game-logic": "^0.0.15",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^11.4.10",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
